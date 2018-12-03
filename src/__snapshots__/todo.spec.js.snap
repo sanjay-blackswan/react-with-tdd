@@ -6,6 +6,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <TodoView
     data={Array []}
     handleDelete={[MockFunction]}
+    handleEditTodo={[MockFunction]}
     handleStatus={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {

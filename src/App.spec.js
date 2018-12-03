@@ -13,9 +13,9 @@ describe('App', () => {
   });
 
   it('should render the TodoView Component', () => {
-    expect(wrapper.containsMatchingElement(<TodoView data={wrapper.instance().state.data} handleStatus={wrapper.instance().handleStatus} handleDelete={wrapper.instance().handleDelete} />)).toEqual(true);
+    expect(wrapper.containsMatchingElement(<TodoView data={wrapper.instance().state.data} handleStatus={wrapper.instance().handleStatus} handleDelete={wrapper.instance().handleDelete} handleEditTodo={wrapper.instance().handleEditTodo} />)).toEqual(true);
   });
   it('should render the AddTodo Component', () => {
-    expect(wrapper.containsMatchingElement(<AddTodo handleAddTask={wrapper.instance().handleAddTask} />))
+    expect(wrapper.containsMatchingElement(<AddTodo handleAddTask={wrapper.instance().handleAddTask} editText={wrapper.instance().state.editText} handleUpdateTodo={wrapper.instance().handleUpdateTodo} />))
   })
 });

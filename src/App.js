@@ -10,7 +10,8 @@ class App extends Component {
       { taskname: 'C++', status: false },
       { taskname: 'Java', status: false },
       { taskname: 'Python', status: false },
-      { taskname: 'COBOL', status: false }]
+      { taskname: 'COBOL', status: false }],
+      editText: null
     }
   }
 
@@ -42,12 +43,30 @@ class App extends Component {
     })
   }
 
+  handleEditTodo = (taskname) => {
+    this.setState({
+      editText: taskname
+    })
+  }
+  handleUpdateTodo = (prevtaskname, taskname) => {
+    let data = [...this.state.data];
+    let index = data.findIndex(d => d.taskname === prevtaskname);
+    data[index].taskname = taskname;
+    this.setState({
+      data: data,
+      editText: null
+    })
+  }
+
   render() {
-    const { data } = this.state;
+    const { data, editText } = this.state;
     return (
       <div className="App-header">
-        <AddTodo handleAddTask={this.handleAddTask} />
-        <TodoView data={data} handleStatus={this.handleStatus} handleDelete={this.handleDelete} />
+        <AddTodo handleAddTask={this.handleAddTask} editText={editText} handleUpdateTodo={this.handleUpdateTodo} />
+        <TodoView data={data}
+          handleStatus={this.handleStatus}
+          handleDelete={this.handleDelete}
+          handleEditTodo={this.handleEditTodo} />
       </div>
     );
   }
