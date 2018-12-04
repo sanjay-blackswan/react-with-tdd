@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import TodoView from "./Todo/todo"
 import AddTodo from "./Todo/addtodo";
+import EditTodo from "./Todo/EditTodo";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +12,7 @@ class App extends Component {
       { taskname: 'Java', status: false },
       { taskname: 'Python', status: false },
       { taskname: 'COBOL', status: false }],
-      editText: null
+      editText: ''
     }
   }
 
@@ -28,7 +29,8 @@ class App extends Component {
     let data = [...this.state.data];
     data = data.filter(d => d.taskname != obj.taskname);
     this.setState({
-      data: data
+      data: data,
+      editText: ''
     })
   }
 
@@ -54,7 +56,7 @@ class App extends Component {
     data[index].taskname = taskname;
     this.setState({
       data: data,
-      editText: null
+      editText: ''
     })
   }
 
@@ -62,7 +64,10 @@ class App extends Component {
     const { data, editText } = this.state;
     return (
       <div className="App-header">
-        <AddTodo handleAddTask={this.handleAddTask} editText={editText} handleUpdateTodo={this.handleUpdateTodo} />
+        {
+          editText ? <EditTodo editText={editText} handleUpdateTodo={this.handleUpdateTodo} />
+            : <AddTodo handleAddTask={this.handleAddTask} />
+        }
         <TodoView data={data}
           handleStatus={this.handleStatus}
           handleDelete={this.handleDelete}

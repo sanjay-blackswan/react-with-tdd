@@ -19,9 +19,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <AddTodo
-          editText={null}
           handleAddTask={[Function]}
-          handleUpdateTodo={[Function]}
         />,
         <TodoView
           data={
@@ -62,9 +60,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "editText": null,
           "handleAddTask": [Function],
-          "handleUpdateTodo": [Function],
         },
         "ref": null,
         "rendered": null,
@@ -116,9 +112,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <AddTodo
-            editText={null}
             handleAddTask={[Function]}
-            handleUpdateTodo={[Function]}
           />,
           <TodoView
             data={
@@ -159,9 +153,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "editText": null,
             "handleAddTask": [Function],
-            "handleUpdateTodo": [Function],
           },
           "ref": null,
           "rendered": null,
